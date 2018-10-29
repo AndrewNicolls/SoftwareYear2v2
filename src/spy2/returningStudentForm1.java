@@ -260,13 +260,13 @@ public class returningStudentForm1 extends javax.swing.JFrame {
         zipTxf = new javax.swing.JTextField();
         raceLbl = new javax.swing.JLabel();
         emailLbl = new javax.swing.JLabel();
-        genderCbx = new javax.swing.JComboBox<String>();
+        genderCbx = new javax.swing.JComboBox<>();
         cNumLbl = new javax.swing.JLabel();
-        languageCbx = new javax.swing.JComboBox<String>();
+        languageCbx = new javax.swing.JComboBox<>();
         hNumLbl = new javax.swing.JLabel();
-        raceCbx = new javax.swing.JComboBox<String>();
+        raceCbx = new javax.swing.JComboBox<>();
         resAddrLbl = new javax.swing.JLabel();
-        courseCbx = new javax.swing.JComboBox<String>();
+        courseCbx = new javax.swing.JComboBox<>();
         firstnameTxf = new javax.swing.JTextField();
         surnameTxf = new javax.swing.JTextField();
         reminderLbl = new javax.swing.JLabel();
@@ -360,19 +360,19 @@ public class returningStudentForm1 extends javax.swing.JFrame {
 
         emailLbl.setText("Email address");
 
-        genderCbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female" }));
+        genderCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
 
         cNumLbl.setText("Cell number");
 
-        languageCbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "English", "isiXhosa", "Afrikaans", "Zulu", "French", "Portugese" }));
+        languageCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "English", "isiXhosa", "Afrikaans", "Zulu", "French", "Portugese" }));
 
         hNumLbl.setText("Home number");
 
-        raceCbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Black", "White", "Coloured", "Indian", "Asian", "other" }));
+        raceCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Black", "White", "Coloured", "Indian", "Asian", "other" }));
 
         resAddrLbl.setText("Residential address");
 
-        courseCbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Bsc IT", "Bcomm Law", "Ba Psych" }));
+        courseCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bsc IT", "Bcomm Law", "Ba Psych" }));
 
         reminderLbl.setForeground(new java.awt.Color(255, 0, 0));
         reminderLbl.setText("Please ensure all information below is correct");
@@ -393,6 +393,8 @@ public class returningStudentForm1 extends javax.swing.JFrame {
         errZip.setForeground(new java.awt.Color(255, 0, 0));
 
         dateBirth.setDateFormatString("yyyy MM dd");
+        dateBirth.setMaxSelectableDate(new java.util.Date(978303709000L));
+        dateBirth.setMinSelectableDate(new java.util.Date(-62135773091000L));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
