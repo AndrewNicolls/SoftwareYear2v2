@@ -34,6 +34,8 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -69,8 +71,7 @@ public class newStudentForm extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
         }
-        
-
+       
     }
 
     // user input validation method
@@ -216,7 +217,7 @@ public class newStudentForm extends javax.swing.JFrame {
         IDTxf = new javax.swing.JTextField();
         reminderLbl = new javax.swing.JLabel();
         studentInfoLbl = new javax.swing.JLabel();
-        courseCbx = new javax.swing.JComboBox<String>();
+        courseCbx = new javax.swing.JComboBox<>();
         courseLbl = new javax.swing.JLabel();
         starLbl2 = new javax.swing.JLabel();
         dobLbl = new javax.swing.JLabel();
@@ -229,9 +230,9 @@ public class newStudentForm extends javax.swing.JFrame {
         starLbl3 = new javax.swing.JLabel();
         starLbl1 = new javax.swing.JLabel();
         starLbl8 = new javax.swing.JLabel();
-        genderCbx = new javax.swing.JComboBox<String>();
-        languageCbx = new javax.swing.JComboBox<String>();
-        raceCbx = new javax.swing.JComboBox<String>();
+        genderCbx = new javax.swing.JComboBox<>();
+        languageCbx = new javax.swing.JComboBox<>();
+        raceCbx = new javax.swing.JComboBox<>();
         starLbl10 = new javax.swing.JLabel();
         starLbl11 = new javax.swing.JLabel();
         starLbl12 = new javax.swing.JLabel();
@@ -321,11 +322,11 @@ public class newStudentForm extends javax.swing.JFrame {
         starLbl8.setForeground(new java.awt.Color(255, 51, 0));
         starLbl8.setText("*");
 
-        genderCbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Male", "Female" }));
+        genderCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
 
-        languageCbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "English", "isiXhosa", "Afrikaans", "Portugese", "Spanish", "French", "Sotho", "Zulu", "Venda" }));
+        languageCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "English", "isiXhosa", "Afrikaans", "Portugese", "Spanish", "French", "Sotho", "Zulu", "Venda" }));
 
-        raceCbx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Black", "Coloured", "White", "Asian", "Indian", "other" }));
+        raceCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Black", "Coloured", "White", "Asian", "Indian", "other" }));
 
         starLbl10.setForeground(new java.awt.Color(255, 51, 0));
         starLbl10.setText("*");
@@ -386,8 +387,11 @@ public class newStudentForm extends javax.swing.JFrame {
         errZip.setForeground(new java.awt.Color(255, 0, 0));
 
         dateRegistration.setDateFormatString("yyyy-MM-dd");
+        dateRegistration.setMaxSelectableDate(new Date());
 
         dateBirth.setDateFormatString("yyyy-MM-dd");
+        dateBirth.setMaxSelectableDate(new java.util.Date(1009666890000L));
+        dateBirth.setMinSelectableDate(new java.util.Date(-2208992310000L));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
