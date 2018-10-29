@@ -72,7 +72,7 @@ public class Student implements Serializable {
     @Column(name = "nationality")
     private String nationality;
     @Column(name = "IDnum")
-    private Integer iDnum;
+    private String iDnum;
     @Column(name = "race")
     private String race;
     @Column(name = "cellNum")
@@ -191,12 +191,12 @@ public class Student implements Serializable {
         changeSupport.firePropertyChange("nationality", oldNationality, nationality);
     }
 
-    public Integer getIDnum() {
+    public String getIDnum() {
         return iDnum;
     }
 
-    public void setIDnum(Integer iDnum) {
-        Integer oldIDnum = this.iDnum;
+    public void setIDnum(String iDnum) {
+        String oldIDnum = this.iDnum;
         this.iDnum = iDnum;
         changeSupport.firePropertyChange("IDnum", oldIDnum, iDnum);
     }
