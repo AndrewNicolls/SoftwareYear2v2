@@ -71,15 +71,15 @@ public class newStudentForm extends javax.swing.JFrame {
 
         } catch (SQLException ex) {
         }
-       
+
     }
 
     // user input validation method
     public boolean Validate() {
         String[] testArr = {(String) courseCbx.getSelectedItem(), fNameTxf.getText(), sNameTxf.getText(),
             dateRegistration.getDateFormatString(), hNumTxf.getText(), cNumTxf.getText(), emailTxf.getText(), IDTxf.getText(), dateBirth.getDateFormatString(),
-             (String) genderCbx.getSelectedItem(), (String) languageCbx.getSelectedItem(), (String) raceCbx.getSelectedItem(),
-             addressTxf1.getText() + "" + addressTxf2.getText(), zipTxf.getText()};
+            (String) genderCbx.getSelectedItem(), (String) languageCbx.getSelectedItem(), (String) raceCbx.getSelectedItem(),
+            addressTxf1.getText() + "" + addressTxf2.getText(), zipTxf.getText()};
 
         // verify user has entered data into required fields
         String inputTest = "";
@@ -88,82 +88,73 @@ public class newStudentForm extends javax.swing.JFrame {
             if (testArr[i].equals(inputTest)) {
 
                 JOptionPane.showMessageDialog(rootPane, "please fill in all required fields", "ERROR", ERROR_MESSAGE);
-                
+
                 return false;
-                
 
             }
-           
-                
+
         }
         //verify Home number
-        if(hNumTxf.getText().length()!=10){
-            
-        JOptionPane.showMessageDialog(rootPane, "Invaild Home number", "ERROR", ERROR_MESSAGE);
-        errHNum.setText("!");
-        
-        return false;
-        }
-        else{
-        errHNum.setText("");
+        if (hNumTxf.getText().length() != 10) {
+
+            JOptionPane.showMessageDialog(rootPane, "Invaild Home number", "ERROR", ERROR_MESSAGE);
+            errHNum.setText("!");
+
+            return false;
+        } else {
+            errHNum.setText("");
         }
         //verify CellNo
-         if(cNumTxf.getText().length()!=10){
-            
-        JOptionPane.showMessageDialog(rootPane, "Invaild Cellphone number", "ERROR", ERROR_MESSAGE);
-        errCNum.setText("!");
-        
-        return false;
-        
-        }
-         else{
-        errCNum.setText("");
+        if (cNumTxf.getText().length() != 10) {
+
+            JOptionPane.showMessageDialog(rootPane, "Invaild Cellphone number", "ERROR", ERROR_MESSAGE);
+            errCNum.setText("!");
+
+            return false;
+
+        } else {
+            errCNum.setText("");
         }
         //verify email
-        String email =emailTxf.getText(); 
-        if(!email.contains("@")|| !email.contains(".")){
-         
-        JOptionPane.showMessageDialog(rootPane, "Invaild email address", "ERROR", ERROR_MESSAGE);
-        errEmail.setText("!");
-        return false;
-         }
-         else{
-             errEmail.setText("");
-         }
-        
+        String email = emailTxf.getText();
+        if (!email.contains("@") || !email.contains(".")) {
+
+            JOptionPane.showMessageDialog(rootPane, "Invaild email address", "ERROR", ERROR_MESSAGE);
+            errEmail.setText("!");
+            return false;
+        } else {
+            errEmail.setText("");
+        }
+
         //verify ID No. (Local)
         String ID = IDTxf.getText();
-        if(LresRbutton.isSelected()&&ID.length()!=13){
-        
-        JOptionPane.showMessageDialog(rootPane, "Invaild ID number", "ERROR", ERROR_MESSAGE);
-        errID.setText("!");
-        return false;
-        }
-        else{
+        if (LresRbutton.isSelected() && ID.length() != 13) {
+
+            JOptionPane.showMessageDialog(rootPane, "Invaild ID number", "ERROR", ERROR_MESSAGE);
+            errID.setText("!");
+            return false;
+        } else {
             errID.setText("");
         }
         //verify Passport No. (International)
-        if(intResRbutton.isSelected() && ID.length()!=9){
-        JOptionPane.showMessageDialog(rootPane, "Invaild passport number", "ERROR", ERROR_MESSAGE);
-        errID.setText("!");
-        return false;
-        
+        if (intResRbutton.isSelected() && ID.length() != 9) {
+            JOptionPane.showMessageDialog(rootPane, "Invaild passport number", "ERROR", ERROR_MESSAGE);
+            errID.setText("!");
+            return false;
+
+        } else {
+            errID.setText("");
         }
-        else{
-        errID.setText("");
-        }
-        if(zipTxf.getText().length()!=4){
-        JOptionPane.showMessageDialog(rootPane, "Invaild Zip Code", "ERROR", ERROR_MESSAGE);
-        errZip.setText("!");
-        return false;
-        
-        }
-        else{
-        
+        if (zipTxf.getText().length() != 4) {
+            JOptionPane.showMessageDialog(rootPane, "Invaild Zip Code", "ERROR", ERROR_MESSAGE);
+            errZip.setText("!");
+            return false;
+
+        } else {
+
             errZip.setText("");
         }
-        
-               
+
         return true;
 
     }
@@ -217,7 +208,6 @@ public class newStudentForm extends javax.swing.JFrame {
         IDTxf = new javax.swing.JTextField();
         reminderLbl = new javax.swing.JLabel();
         studentInfoLbl = new javax.swing.JLabel();
-        courseCbx = new javax.swing.JComboBox<>();
         courseLbl = new javax.swing.JLabel();
         starLbl2 = new javax.swing.JLabel();
         dobLbl = new javax.swing.JLabel();
@@ -256,6 +246,7 @@ public class newStudentForm extends javax.swing.JFrame {
         errZip = new javax.swing.JLabel();
         dateRegistration = new com.toedter.calendar.JDateChooser();
         dateBirth = new com.toedter.calendar.JDateChooser();
+        courseCbx = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -281,17 +272,6 @@ public class newStudentForm extends javax.swing.JFrame {
         reminderLbl.setText("Please fill in all required information (*)");
 
         studentInfoLbl.setText("Student Information");
-
-        courseCbx.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                courseCbxMouseClicked(evt);
-            }
-        });
-        courseCbx.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                courseCbxActionPerformed(evt);
-            }
-        });
 
         courseLbl.setText("Course");
 
@@ -393,6 +373,8 @@ public class newStudentForm extends javax.swing.JFrame {
         dateBirth.setMaxSelectableDate(new java.util.Date(1009666890000L));
         dateBirth.setMinSelectableDate(new java.util.Date(-2208992310000L));
 
+        courseCbx.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bsc IT Level 1", "Bsc IT Level 2", "Bsc IT Level 3", "Bcomm Level 1", "Bcomm Level 2", "Bcomm Level 3" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -468,38 +450,37 @@ public class newStudentForm extends javax.swing.JFrame {
                                     .addComponent(starLbl13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(addressTxf2)
-                                .addComponent(addressTxf1)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(zipTxf, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(errZip))
-                                        .addComponent(nextBtn))
-                                    .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(addressTxf2)
+                            .addComponent(addressTxf1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(hNumTxf, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(intResRbutton, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fNameTxf, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(sNameTxf, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cNumTxf, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(emailTxf, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(IDTxf, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(courseCbx, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(raceCbx, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(languageCbx, javax.swing.GroupLayout.Alignment.LEADING, 0, 167, Short.MAX_VALUE)
-                                    .addComponent(genderCbx, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(dateRegistration, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                                    .addComponent(dateBirth, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(errHNum, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(errCNum)
-                                    .addComponent(errEmail)
-                                    .addComponent(errID))))))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(zipTxf, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(errZip))
+                                    .addComponent(nextBtn)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(hNumTxf, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(intResRbutton, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(fNameTxf, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(sNameTxf, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cNumTxf, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(emailTxf, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(IDTxf, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(raceCbx, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(languageCbx, javax.swing.GroupLayout.Alignment.LEADING, 0, 167, Short.MAX_VALUE)
+                                            .addComponent(genderCbx, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(dateRegistration, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                                            .addComponent(dateBirth, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(errHNum, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(errCNum)
+                                            .addComponent(errEmail)
+                                            .addComponent(errID)))
+                                    .addComponent(courseCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(16, 16, 16))
         );
         jPanel1Layout.setVerticalGroup(
@@ -510,19 +491,23 @@ public class newStudentForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(studentInfoLbl)
                 .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(intResRbutton)
+                    .addComponent(LresRbutton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(intResRbutton)
-                                    .addComponent(LresRbutton))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(courseCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(courseLbl)
-                                    .addComponent(starLbl1))
-                                .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(courseLbl)
+                            .addComponent(starLbl1))
+                        .addGap(27, 27, 27))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(courseCbx, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(fNameLbl)
                                     .addComponent(fNameTxf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -536,7 +521,7 @@ public class newStudentForm extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(dorLbl)
                                     .addComponent(starLbl4)))
-                            .addComponent(dateRegistration, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(dateRegistration, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(hNumLbl)
@@ -565,7 +550,7 @@ public class newStudentForm extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(dobLbl)
                             .addComponent(starLbl9)))
-                    .addComponent(dateBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dateBirth, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(genderLbl)
@@ -613,7 +598,7 @@ public class newStudentForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addGap(0, 20, Short.MAX_VALUE))
         );
 
         pack();
@@ -621,14 +606,14 @@ public class newStudentForm extends javax.swing.JFrame {
 
     private void nextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextBtnActionPerformed
         // TODO add your handling code here:
-        
-         //variable used to check whether user can progress to next screen
-            boolean updateSuccess = false;
 
-            //input validation
-            updateSuccess = Validate();
-            
-        if (updateSuccess==true) {
+        //variable used to check whether user can progress to next screen
+        boolean updateSuccess = false;
+
+        //input validation
+        updateSuccess = Validate();
+
+        if (updateSuccess == true) {
             String nationality;
             if (LresRbutton.isSelected()) {
                 nationality = "South African";
@@ -641,29 +626,23 @@ public class newStudentForm extends javax.swing.JFrame {
             String course = (String) courseCbx.getSelectedItem();
             String firstName = fNameTxf.getText();
             String surname = sNameTxf.getText();
-            
+
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             String dateOfReg = dateFormat.format(dateRegistration.getDate());
             String dateOfBirth = dateFormat.format(dateBirth.getDate());
-            
-            
-            //String dateOfReg = dateRegistration.getDateFormatString();
+
             String homeNum = hNumTxf.getText();
             String cellNum = cNumTxf.getText();
             String email = emailTxf.getText();
             String idNum = IDTxf.getText();
-           // String dateOfBirth = dateBirth.getDateFormatString();
             String gender = (String) genderCbx.getSelectedItem();
             String language = (String) languageCbx.getSelectedItem();
             String race = (String) raceCbx.getSelectedItem();
             String resAddress = addressTxf1.getText() + "" + addressTxf2.getText();
             String zip = zipTxf.getText();
 
-           
-            
-
             String spID = generateID();
-
+            System.out.println(""+idNum);
             Connection connection;
             try {
                 connection = DriverManager.getConnection("jdbc:mysql://localhost/ease", "root", "");
@@ -692,7 +671,7 @@ public class newStudentForm extends javax.swing.JFrame {
                 String user = "softwareprojectyear2capetown@gmail.com";
                 String to = emailTxf.getText();
                 String sub = "Textbook List";
-                String text = "Congratalations "+ firstName+" your enrollment has been completed " + "\n Please go look through the attached documents"+"\n Student Number: "+getStuID();
+                String text = "Congratalations " + firstName + " your enrollment has been completed " + "\n Please go look through the attached documents" + "\n Student Number: " + getStuID();
 
                 boolean sessionDebug = false;
                 Properties pros = new Properties();
@@ -718,7 +697,7 @@ public class newStudentForm extends javax.swing.JFrame {
                     messageBodyPart1.setText(text);
 
                     BodyPart messageBodyPart2 = new MimeBodyPart();
-                    String attachmentName = "C://Users/Rowan/Desktop/AndrewUpdate/SpRowan30-09-18/RowanSp2/src/files/textbookList.pdf";
+                    String attachmentName = "./Documents/textbookList.pdf";
                     DataSource source = new FileDataSource(attachmentName);
                     messageBodyPart2.setDataHandler(new DataHandler(source));
                     messageBodyPart2.setFileName(attachmentName);
@@ -737,10 +716,10 @@ public class newStudentForm extends javax.swing.JFrame {
                 } catch (Exception ex) {
                     System.out.println(ex.getMessage());
                 }
-               
+
                 this.setVisible(false);
                 new newStudentForm2(getStuID()).setVisible(true);
-             
+
             }
         }
     }//GEN-LAST:event_nextBtnActionPerformed
@@ -751,16 +730,6 @@ public class newStudentForm extends javax.swing.JFrame {
         this.setVisible(false);
 
     }//GEN-LAST:event_backBtnActionPerformed
-
-    private void courseCbxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_courseCbxActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_courseCbxActionPerformed
-
-    private void courseCbxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_courseCbxMouseClicked
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_courseCbxMouseClicked
 
     /**
      * @param args the command line arguments
